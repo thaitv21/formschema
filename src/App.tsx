@@ -1,24 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {FormSchema} from "./FormSchema2";
+import Form from "./Form2";
+
+interface Lead {
+  name: string,
+  tags: string[],
+}
+
+const schema: FormSchema<Lead> = {
+  name: {
+    name: 'name',
+    label: 'Name',
+    type: 'text'
+  },
+  tags: {
+    name: 'tags',
+    type: 'select',
+    label: 'Tags',
+    options: ['tag1', 'tag2']
+  }
+}
+
+const defaultValues : Lead = {
+  name: 'My name',
+  tags: ['abc']
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      dsdhasjdhj
+      <Form schema={schema} />
     </div>
   );
 }
