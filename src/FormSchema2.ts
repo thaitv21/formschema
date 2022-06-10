@@ -21,7 +21,7 @@ export type InputSchema<T, K extends keyof T> = BaseSchema<T, K> & {
 
 export type SelectSchema<T, K extends keyof T> = BaseSchema<T, K> & {
   type: 'select',
-  options: T[K] extends Array<infer V> ? Array<V> : Array<T[K]>
+  options: T[K] extends Array<infer V extends any> ? Array<V> : Array<T[K]>
 }
 
 export type FormItemSchema<T, K extends keyof T> = InputSchema<T, K> | SelectSchema<T, K>
